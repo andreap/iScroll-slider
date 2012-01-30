@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Slider prototype</title>
+
+<script src="js/iscroll.js"></script>
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript">
+	var scr = null;
+	var w = 870;
+	var pages = 5;
+	var colors=["#999","#ccc"];
+	
+	function init(){
+		document.getElementById("scroller").style.width = (pages*100)+"%";
+		for(var i=1; i<=pages;i++){
+			var color = colors[i%2];
+			document.getElementById("scroller").innerHTML += "<div class='page' id='pag_"+ i +"' style='left:"+(i-1)*w+"px; background-color:"+color+"'></div>"
+			//console.log(document.getElementById("scroller").innerHTML);
+		}
+		
+		scr = new iScroll("wrapper", {hScrollbar: false, vScrollbar: false, snap:true, momentum:false});
+		
+		document.getElementById("prev").addEventListener("click", goPrev, false);
+		document.getElementById("next").addEventListener("click", goNext, false);
+	}
+	
+	// Per il clic per tornare alla slide precedente
+	function goPrev(){
+		console.log("prev");
+		scr.scrollToPage("prev",0,300);
+	}
+
+	// Per il clic per andare alla slide successiva
+	function goNext(){
+		console.log("next");
+		scr.scrollToPage("next",0,300);
+	}
+</script>
+
+</head>
+
+<body onload='init()'>
+	
+	<div id="wrapper">
+		<div id="scroller">
+        </div>
+    </div>
+    
+    <div id="prev"></div>
+    <div id="next"></div>
+    
+</body>
+</html>

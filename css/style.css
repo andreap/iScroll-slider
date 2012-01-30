@@ -1,0 +1,50 @@
+#cover {
+	position:absolute;
+	z-index:100;
+	width:870px;
+	height:500px;
+}
+
+#wrapper{
+	position:absolute;
+	z-index:30;
+	width:870px;
+	height:500px;
+	left:0px;
+	top:0px;
+	overflow:hidden;
+}
+
+#scroller{
+	position:absolute;
+	width:300%;
+	height:500px;
+	left:0px;
+	top:0px;
+}
+
+.page{
+	position:absolute;
+	width:870px;;
+	height:500px;
+}
+
+#prev{
+	background-color:black;
+	position:absolute;
+	z-index:50;
+	left:0px;
+	top:230px;
+	height:40px;
+	width:40px;
+}
+
+#next{
+	background-color:black;
+	position:absolute;
+	z-index:50;
+	left:830px;
+	top:230px;
+	height:40px;
+	width:40px;
+}

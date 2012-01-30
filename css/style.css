@@ -1,10 +1,33 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+/* COVER */
 #cover {
 	position:absolute;
 	z-index:100;
 	width:870px;
 	height:500px;
+	background:url(../images/cover.jpg) 0 0 no-repeat;
 }
 
+.show {
+	opacity:1;
+}
+	
+.hidden{
+	-webkit-transition:1s opacity;
+	-moz-transition:1s opacity;
+	-o-transition:1s opacity;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	-webkit-opacity:0;
+	-moz-opacity:0;
+	-o-opacity:0;
+	opacity:0;
+}
+
+/* SLIDER */
 #wrapper{
 	position:absolute;
 	z-index:30;
@@ -29,6 +52,7 @@
 	height:500px;
 }
 
+/* NAVIGATION */
 #prev{
 	background-color:black;
 	position:absolute;

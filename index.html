@@ -12,11 +12,13 @@
 	var scr = null;
 	var w = 870;
 	var pages = 5;
-	var colors=["#999","#ccc"];
+	var opacitySteps = 1000;
+	var colors=["#ff3300","#ffcc00"];
 	
 	function init(){
 		document.getElementById("scroller").style.width = (pages*100)+"%";
-		for(var i=1; i<=pages;i++){
+		
+		for(var i=1; i<=pages; i++){
 			var color = colors[i%2];
 			document.getElementById("scroller").innerHTML += "<div class='page' id='pag_"+ i +"' style='left:"+(i-1)*w+"px; background-color:"+color+"'></div>"
 			//console.log(document.getElementById("scroller").innerHTML);
@@ -26,6 +28,8 @@
 		
 		document.getElementById("prev").addEventListener("click", goPrev, false);
 		document.getElementById("next").addEventListener("click", goNext, false);
+		
+		document.getElementById("cover").addEventListener("click", coverFadeOut, false);
 	}
 	
 	// Per il clic per tornare alla slide precedente
@@ -39,11 +43,18 @@
 		console.log("next");
 		scr.scrollToPage("next",0,300);
 	}
+	
+	function coverFadeOut() {
+		document.getElementById("cover").className="hidden";
+		document.getElementById("cover").addEventListener("webkitTransitionEnd",function(){ document.getElementById("cover").style.display="none"; } , false);
+	}
 </script>
 
 </head>
 
 <body onload='init()'>
+
+	<div id="cover" class="show" onclick="coverFadeOut();"></div>
 	
 	<div id="wrapper">
 		<div id="scroller">
